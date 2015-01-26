@@ -43,10 +43,10 @@ include("functions.php");
 
 
 </div>
-<div style="float:right;text-align:right;font-size: 20px;margin-top: 6px;">
+<!--div style="float:right;text-align:right;font-size: 20px;margin-top: 6px;">
 A & B  VIP <b>$100</b> Each,  C to H  <b>$50</b> Each,
 J onward <b> $30</b> Each 
-</div>
+</div-->
 
 </div>
 <div style="clear:both;"></div>
@@ -72,7 +72,7 @@ J onward <b> $30</b> Each
 <!-- -----------------------------------A LEFT ------------------------- --------------->    
 <tr>
 <td width="10" class="lineno"><font size="+1">A</font></td>
-<?php for($i=7;$i>0;$i--){ 
+<?php for($i=1;$i<8;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="A-<?php echo $i; ?>_L" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
@@ -83,7 +83,7 @@ $num_padded = sprintf("%02s", $i);?>
 <!-- -----------------------------------B LEFT ------------------------- --------------->   
 <tr>
 <td width="10" class="lineno"><font size="+1">B</font></td>
-<?php for($i=36;$i>26;$i--){ 
+<?php for($i=1;$i<=11;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="B-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
@@ -94,7 +94,7 @@ $num_padded = sprintf("%02s", $i);?>
 <!-- -----------------------------------C LEFT ------------------------- --------------->   
 <tr>
 <td width="10" class="lineno"><font size="+1">C</font></td>
-<?php for($i=36;$i>26;$i--){ 
+<?php for($i=1;$i<=11;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="C-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
@@ -105,7 +105,7 @@ $num_padded = sprintf("%02s", $i);?>
 <!-- -----------------------------------D LEFT ------------------------- --------------->   
 <tr>
 <td width="10" class="lineno"><font size="+1">D</font></td>
-<?php for($i=38;$i>27;$i--){ 
+<?php for($i=1;$i<=12;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="D-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
@@ -117,7 +117,7 @@ $num_padded = sprintf("%02s", $i);?>
 <!-- -----------------------------------E LEFT ------------------------- --------------->   
 <tr>
 <td width="10" class="lineno"><font size="+1">E</font></td>
-<?php for($i=41;$i>30;$i--){ 
+<?php for($i=1;$i<=13;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="E-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
@@ -129,7 +129,7 @@ $num_padded = sprintf("%02s", $i);?>
 <!-- -----------------------------------F LEFT ------------------------- --------------->   
 <tr>
 <td width="10" class="lineno"><font size="+1">F</font></td>
-<?php for($i=42;$i>30;$i--){ 
+<?php for($i=1;$i<=13;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="F-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
@@ -140,7 +140,7 @@ $num_padded = sprintf("%02s", $i);?>
 <!-- -----------------------------------G LEFT ------------------------- --------------->   
 <tr>
 <td width="10" class="lineno"><font size="+1">G</font></td>
-<?php for($i=43;$i>31;$i--){ 
+<?php for($i=1;$i<=14;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="G-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
@@ -151,7 +151,18 @@ $num_padded = sprintf("%02s", $i);?>
 <!-- -----------------------------------H LEFT ------------------------- --------------->   
 <tr>
 <td width="10" class="lineno"><font size="+1">H</font></td>
-<?php for($i=45;$i>32;$i--){ 
+<?php for($i=1;$i<=14;$i++){ 
+$num_padded = sprintf("%02s", $i);?>
+<td id="H-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
+<font size="+1"><?php echo $num_padded; ?></font>
+</td>
+<?php } ?>
+</tr>
+
+<!-- -----------------------------------I LEFT ------------------------- --------------->   
+<tr>
+<td width="10" class="lineno"><font size="+1">I</font></td>
+<?php for($i=1;$i<=11;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="H-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
@@ -162,7 +173,7 @@ $num_padded = sprintf("%02s", $i);?>
 <!-- -----------------------------------J LEFT ------------------------- --------------->   
 <tr>
 <td width="10" class="lineno"><font size="+1">J</font></td>
-<?php for($i=48;$i>34;$i--){ 
+<?php for($i=1;$i<=11;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="J-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
@@ -173,7 +184,7 @@ $num_padded = sprintf("%02s", $i);?>
 <!-- -----------------------------------K LEFT ------------------------- --------------->   
 <tr>
 <td width="10" class="lineno"><font size="+1">K</font></td>
-<?php for($i=49;$i>35;$i--){ 
+<?php for($i=1;$i<=12;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="K-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
@@ -184,7 +195,7 @@ $num_padded = sprintf("%02s", $i);?>
 <!-- -----------------------------------L LEFT ------------------------- --------------->   
 <tr>
 <td width="10" class="lineno"><font size="+1">L</font></td>
-<?php for($i=49;$i>34;$i--){ 
+<?php for($i=1;$i<=12;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="L-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
@@ -195,7 +206,7 @@ $num_padded = sprintf("%02s", $i);?>
 <!-- -----------------------------------M LEFT ------------------------- --------------->   
 <tr>
 <td width="10" class="lineno"><font size="+1">M</font></td>
-<?php for($i=51;$i>=37;$i--){ 
+<?php for($i=1;$i<=12;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="M-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
@@ -206,7 +217,7 @@ $num_padded = sprintf("%02s", $i);?>
 <!-- -----------------------------------N LEFT ------------------------- --------------->   
 <tr>
 <td width="10" class="lineno"><font size="+1">N</font></td>
-<?php for($i=51;$i>=37;$i--){ 
+<?php for($i=1;$i<=11;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="N-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
@@ -214,10 +225,22 @@ $num_padded = sprintf("%02s", $i);?>
 <?php } ?>
 </tr>
 
+<!-- -----------------------------------O LEFT ------------------------- --------------->   
+<tr>
+<td width="10" class="lineno"><font size="+1">P</font></td>
+<?php for($i=1;$i<=11;$i++){ 
+$num_padded = sprintf("%02s", $i);?>
+<td id="P-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
+<font size="+1"><?php echo $num_padded; ?></font>
+</td>
+<?php } ?>
+</tr>
+
+
 <!-- -----------------------------------P LEFT ------------------------- --------------->   
 <tr>
 <td width="10" class="lineno"><font size="+1">P</font></td>
-<?php for($i=50;$i>=36;$i--){ 
+<?php for($i=1;$i<=10;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="P-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
@@ -228,7 +251,7 @@ $num_padded = sprintf("%02s", $i);?>
 <!-- -----------------------------------Q LEFT ------------------------- --------------->   
 <tr>
 <td width="10" class="lineno"><font size="+1">Q</font></td>
-<?php for($i=50;$i>=37;$i--){ 
+<?php for($i=1;$i<=8;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="Q-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
@@ -239,50 +262,13 @@ $num_padded = sprintf("%02s", $i);?>
 <!-- -----------------------------------R LEFT ------------------------- --------------->   
 <tr>
 <td width="10" class="lineno"><font size="+1">R</font></td>
-<?php for($i=51;$i>=38;$i--){ 
+<?php for($i=1;$i<=7;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
 <td id="R-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
 </td>
 <?php } ?>
 </tr>
-
-
-<!-- -----------------------------------S LEFT ------------------------- --------------->   
-<tr>
-<td width="10" class="lineno"><font size="+1">S</font></td>
-<?php for($i=51;$i>=38;$i--){ 
-$num_padded = sprintf("%02s", $i);?>
-<td id="S-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
-<font size="+1"><?php echo $num_padded; ?></font>
-</td>
-<?php } ?>
-</tr>
-
-<!-- -----------------------------------T LEFT ------------------------- --------------->   
-<tr>
-<td width="10" class="lineno"><font size="+1">T</font></td>
-<?php for($i=50;$i>=38;$i--){ 
-$num_padded = sprintf("%02s", $i);?>
-<td id="T-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
-<font size="+1"><?php echo $num_padded; ?></font>
-</td>
-<?php } ?>
-</tr>
-
-
-<!-- -----------------------------------U LEFT ------------------------- --------------->   
-<tr>
-<td width="10" class="lineno"><font size="+1">U</font></td>
-<?php for($i=50;$i>=39;$i--){ 
-$num_padded = sprintf("%02s", $i);?>
-<td id="U-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
-<font size="+1"><?php echo $num_padded; ?></font>
-</td>
-<?php } ?>
-</tr>
-
-
 
 
 <!--tr>
