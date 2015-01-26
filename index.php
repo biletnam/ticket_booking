@@ -1,5 +1,5 @@
 <?php include("config.php"); 
-include("functions.php");
+include("functions.php");//only want to see it
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
