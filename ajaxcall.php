@@ -231,66 +231,42 @@ $("#selectmax").change(function(e) {
 	
 	 $("#selected").html(sel.join(" , "));
 });
-	var seatno_first_array=['A','B'];
-	var seatno_second_array=['C','D','E','F','G','H'];
-	var seatno_third_array=['J','K','L','M','N','O','P'];
-	var seatno_four_array=['Q','R','S','T','U'];
-	
 var sel=[];
 var activeTickets;
 var price=0;
-function priceIncrManage(seat_row)
+function priceIncrManage(seat)
 {
-	if(jQuery.inArray(seat_row,seatno_first_array)!=-1)
-	{
-		price=Number(price)+Number(ticketrate0);
+	$.ajax({
+            url : 'getaction.php',
+            method : 'POST',
+			async: false, 
+            data : {action:"get_ticket_rate",ticket:seat},
+            success: function(result){
+                db_price=result;
+            }
+        })
+		price=Number(price)+Number(db_price);
 		$("#sum").html(price);
-	}
-	else if(jQuery.inArray(seat_row,seatno_second_array)!=-1)
-	{
-		price=Number(price)+Number(ticketrate1);
-		$("#sum").html(price);
-	}
-	else if(jQuery.inArray(seat_row,seatno_third_array)!=-1)
-	{
-		price=Number(price)+Number(ticketrate2);
-		$("#sum").html(price);
-	}
-	else
-	{
-		price=Number(price)+Number(ticketrate3);
-		$("#sum").html(price);
-	} 
-	//console.log(seat_row[0]);
 }
-function priceDecrManage(seat_row)
+function priceDecrManage(seat)
 {
-	if(jQuery.inArray(seat_row,seatno_first_array)!=-1)
-	{
-		price=Number(price)-Number(ticketrate0);
+	$.ajax({
+            url : 'getaction.php',
+            method : 'POST',
+			async: false, 
+            data : {action:"get_ticket_rate",ticket:seat},
+            success: function(result){
+                db_price=result;
+            }
+        })
+		price=Number(price)-Number(db_price);
 		$("#sum").html(price);
-	}
-	else if(jQuery.inArray(seat_row,seatno_second_array)!=-1)
-	{
-		price=Number(price)-Number(ticketrate1);
-		$("#sum").html(price);
-	}
-	else if(jQuery.inArray(seat_row,seatno_third_array)!=-1)
-	{
-		price=Number(price)-Number(ticketrate2);
-		$("#sum").html(price);
-	}
-	else
-	{
-		price=Number(price)-Number(ticketrate3);
-		$("#sum").html(price);
-	} 
 }
 $(".available").on("click",function(e) {
 	
-	var b=$(this).attr("id");
-	var seat_row_array=b.split('-');
-	var seat_row=seat_row_array[0];
+	var seat=$(this).attr("id");
+	//var seat_row_array=b.split('-');
+	//var seat_row=seat_row_array[0];
 	
 
 	if(Number(number)<Number(max_ticket))
@@ -300,21 +276,21 @@ $(".available").on("click",function(e) {
 			case "chairicon_cir_26.png":
 				$(this).attr("background","chairicon_cir_26_green.png");
 				number++;
-				sel.push(b);
-				console.log(sel);
+				sel.push(seat);
+				//console.log(sel);
 				sel.sort();			
 				$("#selected").html(sel.join(" , "));
-				priceIncrManage(seat_row);
+				priceIncrManage(seat);
 				break;
 			
 			case "chairicon_cir_26_green.png":
 				 $(this).attr("background","chairicon_cir_26.png");
 				 number--;
 				 //sel.pop(b);
-				 sel.splice( $.inArray(b,sel) ,1 );
+				 sel.splice( $.inArray(seat,sel) ,1 );
 				 sel.sort();
 				 $("#selected").html(sel.join(" , "));
-				 priceDecrManage(seat_row);
+				 priceDecrManage(seat);
 				 break;
 				 
 		}
@@ -330,10 +306,10 @@ $(".available").on("click",function(e) {
 				 $(this).attr("background","chairicon_cir_26.png");
 				  number--;
 				  //sel.pop(b);
-				  sel.splice( $.inArray(b,sel) ,1 );
+				  sel.splice( $.inArray(seat,sel) ,1 );
 				  sel.sort();
 				 $("#selected").html(sel.join(" , "));
-				 priceDecrManage(seat_row);
+				 priceDecrManage(seat);
 				 break;
 				 
 		}
@@ -389,8 +365,8 @@ $("#ticketproceed").click(function(e) {
 	$(this).attr("disabled","disabled");
 	$(".noty_type_information").hide();
 	
-	infonoty('top','Online Booking Is Closed.It Will Open at 4:30 PM at venue');
-	/*
+	//infonoty('top','Online Booking Is Closed.It Will Open at 4:30 PM at venue');
+	
 		if(Number(number)==max_ticket && max_ticket==sel.length)
 		{
 			
@@ -405,7 +381,7 @@ $("#ticketproceed").click(function(e) {
 						}
        				 }) */
 			
-		/*	
+			
 			$.ajax({
 						url : 'getaction.php',
 						method : 'POST',
@@ -430,13 +406,15 @@ $("#ticketproceed").click(function(e) {
 												count++;
 												
 											if(Number(count)<5){
-												$('#main_container').load('loading.html');
+												//$('#main_container').load('loading.html');
 												
 													}
 													else{
-														$('#main_container').load('ticket_user_info.php').fadeIn("slow");;
-														//$("#wait").css('dispay','none');
+														
+														$('#main_container').load('ticket_user_info.php').fadeIn("slow");
 														timer.stop();
+														//$("#wait").css('dispay','none');
+														
 														}
 													
 													});
@@ -458,7 +436,7 @@ $("#ticketproceed").click(function(e) {
 									$('#main_container').load('ticket_user_info.php');
 							}	*/
 							
-			/*			}
+						}
        				 });
 			//console.log("Yes..u r right..!!");
 				 var count = 185;
@@ -477,10 +455,7 @@ $("#ticketproceed").click(function(e) {
 				{
 					
 					location.reload();
-				}
-					
-					/*
-						$.ajax({
+					$.ajax({
 						url : 'getaction.php',
 						method : 'POST',
 						data : {action:"delactive",seatno:sel},
@@ -488,8 +463,12 @@ $("#ticketproceed").click(function(e) {
 							console.log(result);
 							//activeTickets=result;
 						}
-       				 })*/
-		/*			
+       				 })
+				}
+					
+					
+						
+				
 				
 			});
 			timer.set({ time : 1000, autostart : true });
@@ -497,7 +476,7 @@ $("#ticketproceed").click(function(e) {
 			
 		}
 		
-	*/
+	
 }); 
 
 });
@@ -592,10 +571,9 @@ $(document).on("submit","#paytickettockenform",function(event) {
 $(document).on("submit","#customer_paypal_redirect",function(event) {
 	event.preventDefault();
 	$(".button_example").attr("disabled","disabled");
-	//$("#main_container_payform").load("loading.html");
-   //infopaypalnoty('top','Please Keep Patience.We are Redirecting to Paypal ');
-   infopaypalnoty('top','Payment is Closed.Please Pay at Vanue');
-   /* $.ajax({
+	$("#main_container_payform").load("loading.html");
+   infopaypalnoty('top','Please Keep Patience.We are Redirecting to Paypal ');
+    $.ajax({
 						url : 'getaction.php',
 						method : 'POST',
 						data : {action:'customer_paypal_redirect'},
@@ -605,7 +583,7 @@ $(document).on("submit","#customer_paypal_redirect",function(event) {
 							$("#c_paypalform").submit();
 							//activeTickets=result;
 						}
-       				 })*/
+       				 })
 	
 });
 

@@ -63,6 +63,20 @@ $pricejson=array("ticket_price"=>$pricearray);
 }
 
 //getrates();
+
+function get_ticket_rate_from_db($ticket)
+{
+$q="SELECT price FROM ticket_rate WHERE name ='".$ticket."'";
+$r=mysql_query($q);
+if(mysql_num_rows($r)>0)
+{
+	while($row=mysql_fetch_array($r))
+	{
+	$t_price=$row["price"];
+	echo $t_price;
+	}
+}
+}
 function check_if_booked($con)
 {
 	$stat="ok";

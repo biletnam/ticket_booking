@@ -13,7 +13,7 @@ include("functions.php");
 <script src="jquery_timer.js"></script>
 <script type="text/javascript" src="notyjs/noty/packaged/jquery.noty.packaged.min.js"></script>
 <script type="text/javascript" src="notyjs/mask.js"></script>
-<?php include('ajaxcall_1.php');?>
+<?php include('ajaxcall.php');?>
 </head>
 
 <body>
@@ -74,7 +74,7 @@ J onward <b> $30</b> Each
 <td width="10" class="lineno"><font size="+1">A</font></td>
 <?php for($i=1;$i<8;$i++){ 
 $num_padded = sprintf("%02s", $i);?>
-<td id="A-<?php echo $i; ?>_L" class="available" valign="middle" background="chairicon_cir_26.png" style="">
+<td id="A-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
 </td>
 <?php } ?>

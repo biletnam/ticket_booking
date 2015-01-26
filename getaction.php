@@ -1,6 +1,7 @@
 <?php
 include('functions.php');
 $action=$_POST["action"];
+
 if($action=="getticket")
 {
     getticketinfo($con,$data);
@@ -64,4 +65,10 @@ if($action=="get_mem_record")
 insert_mem_record();
 }
 
+if($action=="get_ticket_rate")
+{
+	$ticket=$_POST["ticket"];
+//echo "Selected Ticket".$ticket;
+get_ticket_rate_from_db($ticket);
+}
 ?>

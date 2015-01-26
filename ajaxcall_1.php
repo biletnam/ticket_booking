@@ -389,8 +389,8 @@ $("#ticketproceed").click(function(e) {
 	$(this).attr("disabled","disabled");
 	$(".noty_type_information").hide();
 	
-	//infonoty('top','Online Booking Is Closed.It Will Open at 4:30 PM at venue');
-	
+	infonoty('top','Online Booking Is Closed.It Will Open at 4:30 PM at venue');
+	/*
 		if(Number(number)==max_ticket && max_ticket==sel.length)
 		{
 			
@@ -405,7 +405,7 @@ $("#ticketproceed").click(function(e) {
 						}
        				 }) */
 			
-			
+		/*	
 			$.ajax({
 						url : 'getaction.php',
 						method : 'POST',
@@ -430,15 +430,13 @@ $("#ticketproceed").click(function(e) {
 												count++;
 												
 											if(Number(count)<5){
-												//$('#main_container').load('loading.html');
+												$('#main_container').load('loading.html');
 												
 													}
 													else{
-														
-														$('#main_container').load('ticket_user_info.php').fadeIn("slow");
-														timer.stop();
+														$('#main_container').load('ticket_user_info.php').fadeIn("slow");;
 														//$("#wait").css('dispay','none');
-														
+														timer.stop();
 														}
 													
 													});
@@ -460,7 +458,7 @@ $("#ticketproceed").click(function(e) {
 									$('#main_container').load('ticket_user_info.php');
 							}	*/
 							
-						}
+			/*			}
        				 });
 			//console.log("Yes..u r right..!!");
 				 var count = 185;
@@ -479,7 +477,10 @@ $("#ticketproceed").click(function(e) {
 				{
 					
 					location.reload();
-					$.ajax({
+				}
+					
+					/*
+						$.ajax({
 						url : 'getaction.php',
 						method : 'POST',
 						data : {action:"delactive",seatno:sel},
@@ -487,12 +488,8 @@ $("#ticketproceed").click(function(e) {
 							console.log(result);
 							//activeTickets=result;
 						}
-       				 })
-				}
-					
-					
-						
-				
+       				 })*/
+		/*			
 				
 			});
 			timer.set({ time : 1000, autostart : true });
@@ -500,7 +497,7 @@ $("#ticketproceed").click(function(e) {
 			
 		}
 		
-	
+	*/
 }); 
 
 });
@@ -595,9 +592,10 @@ $(document).on("submit","#paytickettockenform",function(event) {
 $(document).on("submit","#customer_paypal_redirect",function(event) {
 	event.preventDefault();
 	$(".button_example").attr("disabled","disabled");
-	$("#main_container_payform").load("loading.html");
-   infopaypalnoty('top','Please Keep Patience.We are Redirecting to Paypal ');
-    $.ajax({
+	//$("#main_container_payform").load("loading.html");
+   //infopaypalnoty('top','Please Keep Patience.We are Redirecting to Paypal ');
+   infopaypalnoty('top','Payment is Closed.Please Pay at Vanue');
+   /* $.ajax({
 						url : 'getaction.php',
 						method : 'POST',
 						data : {action:'customer_paypal_redirect'},
@@ -607,7 +605,7 @@ $(document).on("submit","#customer_paypal_redirect",function(event) {
 							$("#c_paypalform").submit();
 							//activeTickets=result;
 						}
-       				 })
+       				 })*/
 	
 });
 
