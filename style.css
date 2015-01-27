@@ -84,7 +84,7 @@ float:left;
 }
 .center_left_area_table tr,.center_area_table tr,.center_right_area_table tr
 {
-display: block; 
+display: block;
 /*  text-align: inherit;	*/
 }
 .center_left_area_table tr td font,.center_area_table tr td font,.center_right_area_table tr td font
@@ -94,11 +94,11 @@ display: block;
 
 #center_area
 {
-	width:360px;
+	width:315px;
 }
 #center_right_area
 {
-	width:300px;
+	width:290px;
 }
 #right_area tr > td
 {
@@ -141,7 +141,7 @@ margin-bottom: 0px;
 .c_form input,.c_form textarea{
 	width:439px;
 	height:45px;
-	
+
 	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
@@ -171,7 +171,7 @@ height:105px;
 	input:focus, textarea:focus {
 		border:1px solid #97d6eb;
 	}
-	
+
 	/*
 	.conntactsubmit
 {
@@ -204,7 +204,7 @@ opacity:1;
 .noty_message
 {
 	color:#FFF !important;
-font-size: 33px !important; line-height: 28px !important;font-family:Calibri;font-weight:100 !important; 
+font-size: 33px !important; line-height: 28px !important;font-family:Calibri;font-weight:100 !important;
 }
 #noty_top_layout_container li
 {
@@ -253,7 +253,7 @@ border:1px solid #72021c; -webkit-border-radius: 3px; -moz-border-radius: 3px;bo
 
 .ticket_and_rate section
 {
-	float:left;	
+	float:left;
 }
 .ticketlist span
 {
@@ -291,4 +291,4 @@ width:35px
     font: bold 14px "Helvetica Neue", Sans-Serif;
     text-transform: uppercase;
     box-shadow: 0 0 7px black;
-  }  
+  }
