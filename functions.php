@@ -7,13 +7,13 @@ function getticketinfo($con,$data)
 $q="SELECT * FROM ticket_detail";
 $r=mysql_query($q);
 if(mysql_num_rows($r)>0)
-{	
+{
 	while($row=mysql_fetch_array($r))
 	{
 
-		$seat= $row['seat_no'];	
+		$seat= $row['seat_no'];
 		array_push($data,$seat);
-		
+
 	}
 }
 $dataarray=array("booked"=>$data);
@@ -29,10 +29,10 @@ $activeticket=array();
 $q="SELECT * FROM ticket_currently_active";
 $r=mysql_query($q);
 if(mysql_num_rows($r)>0)
-{	
+{
 	while($row=mysql_fetch_array($r))
 	{
-		$seat= $row['seatno'];	
+		$seat= $row['seatno'];
 		array_push($activeticket,$seat);
 	}
 }
@@ -54,7 +54,7 @@ if(mysql_num_rows($r)>0)
 	$t_price=$row["price"];
 	array_push($pricearray,$t_price);
 	}
-	
+
 }
 //print_r($pricearray);
 $pricejson=array("ticket_price"=>$pricearray);
@@ -91,42 +91,42 @@ function check_if_booked($con)
 	$q1="SELECT * FROM ticket_detail";
 	$r1=mysql_query($q1);
 	if(mysql_num_rows($r1)>0)
-	{	
+	{
 		while($row=mysql_fetch_array($r1))
 		{
-			$seat= $row['seat_no'];	
+			$seat= $row['seat_no'];
 			array_push($booked_ticket,$seat);
-			
+
 		}
 	}
 	//print_r($booked_ticket);
 	$active_ticket=array();
-	
+
 	$q2="SELECT * FROM ticket_currently_active";
 	$r2=mysql_query($q2);
 	if(mysql_num_rows($r2)>0)
-	{	
+	{
 		while($row=mysql_fetch_array($r2))
 		{
-			$seat= $row['seatno'];	
+			$seat= $row['seatno'];
 			array_push($active_ticket,$seat);
-			
+
 		}
 	}
-	
-	
+
+
 	//print_r($active_ticket);
-	
+
 	$date = new DateTime();
 	$timestamp=$date->format('U');
-	
+
 	for($i=0;$i<sizeof($seats);$i++)
 	{
 		//echo $seats[$i];
 		if(in_array($seats[$i],$booked_ticket) || in_array($seats[$i],$active_ticket))
 		{
 			$stat="error";
-		}		
+		}
 	}
 	$final_status_step1_array=array();
 	if($stat=='error')
@@ -134,8 +134,8 @@ function check_if_booked($con)
 		echo "error";
 	}
 	else
-	{	
-		
+	{
+
 		for($i=0;$i<sizeof($seats);$i++)
 		{
 			$seat_n=$seats[$i];
@@ -158,8 +158,8 @@ function check_if_booked($con)
 		}
 	}
 	echo $stat;*/
-	
-	
+
+
 mysql_close($con);
 }
 
@@ -172,10 +172,10 @@ function insert_active_ticket($con)
 	$status="active";
 	$seats=array();
 	$seats=$_POST["seatno"];
-	
+
 	$date = new DateTime();
 	$timestamp=$date->format('U');
-	
+
 	//$seats_insidetable=getallactiveticketinarray();
 	//echo $seats_insidetable;
 	for($i=0;$i<sizeof($seats);$i++)
@@ -189,9 +189,9 @@ function insert_active_ticket($con)
 		$seat_n=$seats[$i];
 		$query="INSERT INTO ticket_currently_active VALUES(NULL,'$seat_n','$status','$timestamp')";
 		$r=mysql_query($query);
-		
-		echo $seat_n;	
-		
+
+		echo $seat_n;
+
 	}
 //echo "In PHP function".$_POST["seatno"];
 
@@ -207,7 +207,7 @@ function del_expired_inserted_active_seats($con)
 	$q="SELECT * FROM ticket_currently_active WHERE status='active'";
 	$r=mysql_query($q);
 	if(mysql_num_rows($r)>0)
-	{	
+	{
 		while($row=mysql_fetch_array($r))
 			{
 				$table_timestamp=$row["timestamp"];
@@ -215,7 +215,7 @@ function del_expired_inserted_active_seats($con)
 				{
 					$q1="DELETE FROM ticket_currently_active WHERE status='active' and timestamp='$table_timestamp'";
 					mysql_query($q1);
-					
+
 				}
 				//echo $table_timestamp."<br/>";
 			}
@@ -233,7 +233,7 @@ function del_expired_inserted_payment_seats($con)
 	$q="SELECT * FROM ticket_currently_active WHERE status='payment'";
 	$r=mysql_query($q);
 	if(mysql_num_rows($r)>0)
-	{	
+	{
 		while($row=mysql_fetch_array($r))
 			{
 				$table_timestamp=$row["timestamp"];
@@ -241,7 +241,7 @@ function del_expired_inserted_payment_seats($con)
 				{
 					$q1="DELETE FROM ticket_currently_active WHERE status='payment' and timestamp='$table_timestamp'";
 					mysql_query($q1);
-					
+
 				}
 				//echo $table_timestamp."<br/>";
 			}
@@ -261,7 +261,7 @@ function delete_active_ticket($con)
 		$seat_n=$seats[$i];
 		$query="DELETE FROM ticket_currently_active WHERE seatno='$seat_n'";
 		$r=mysql_query($query);
-		echo $seat_n;	
+		echo $seat_n;
 	}
 //echo "In PHP function".$_POST["seatno"];
 
@@ -275,7 +275,7 @@ $seats=array(23,24,25,"12321");
 	//$max=sizeof($seats);
 	for($i=0;$i<sizeof($seats) ;$i++)
 	{
-		echo $seats[$i];	
+		echo $seats[$i];
 	}
 	*/
 	//date_default_timezone_set("INDIAN");
@@ -303,10 +303,10 @@ $activeticket=array();
 $q="SELECT * FROM ticket_currently_active";
 $r=mysql_query($q);
 if(mysql_num_rows($r)>0)
-{	
+{
 	while($row=mysql_fetch_array($r))
 	{
-		$seat= $row['seatno'];	
+		$seat= $row['seatno'];
 		array_push($activeticket,$seat);
 	}
 }
@@ -321,15 +321,15 @@ function inside_payment_update_limit()
 	//$seat_no_array_aftr_buy=array('T-40','T-41','S-43');
 	$seat_no_array_aftr_buy=$_SESSION['tickets_step1'];
 	//print_r($seat_no_array_aftr_buy);
-	
+
 	for($i=0;$i<sizeof($seat_no_array_aftr_buy);$i++)
 		{
 			$seat_np=$seat_no_array_aftr_buy[$i];
 			$query="UPDATE ticket_currently_active SET status='payment' WHERE seatno='$seat_np' and status='active'";
-			$r=mysql_query($query);		
-			
+			$r=mysql_query($query);
+
 		}
-	
+
 }
 
 function checktokenno()
@@ -415,29 +415,29 @@ foreach($_SESSION['tickets_step1'] as $key=>$value)
   </div>
   <div style="clear:both;"></div>
 <section class="c_form">
-    
-    	    
+
+
         <form id="customer_paypal_redirect" method="post" action="">
-        
+
             <label>Name :</label>
             <h3><?php echo $c_name; ?></h3>
-            
+
             <label>Email :</label>
             <h3><?php echo $c_email ?></h3>
-            
+
             <label>Contact No :</label>
            <h3><?php echo $c_cno; ?></h3>
-           
+
          <button class="button_example" style="margin-top: 10px;float: right;margin-right: 20px;" name="submit" type="submit" value="Submit">Pay Money</button>
-        
+
         </form>
-   
-       
+
+
     </section>
-	
+
 	<?php
 	}
-	
+
 }
 else
 {
@@ -458,17 +458,17 @@ $price=$_SESSION['price'];
 //print_r($_SESSION['price']);
 $item_no=$_SESSION["item_no"];
 	?>
-    
+
 	<form id="c_paypalform" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-	
+
 	<input type="hidden" name="cmd" value="_xclick">
-	
+
 	<input type="hidden" name="business" value="office@gujaratisocietycfl.com">
-	
+
 	<input type="hidden" name="item_name" value="Book Ticket---<?php echo $seatlist;?>">
-	
+
 	<input type="hidden" name="custom" value="<?php echo $item_no; ?>">
-	
+
 
 	<input type="hidden" name="no_note" value="1">
 	<input type="hidden" name="currency_code" value="USD">
@@ -477,10 +477,10 @@ $item_no=$_SESSION["item_no"];
 
 	<input type="hidden" class="input-text"  name="amount" value="<?php echo $price; ?>" />
 
-	
-		
+
+
 	</form>
-    
+
     <?php session_destroy();
 }
 
@@ -489,13 +489,13 @@ function get_booked_member_ticket($con,$data)
 $q="SELECT * FROM ticket_detail WHERE status='pending' or status='completed'";
 $r=mysql_query($q);
 if(mysql_num_rows($r)>0)
-{	
+{
 	while($row=mysql_fetch_array($r))
 	{
 
-		$seat= $row['seat_no'];	
+		$seat= $row['seat_no'];
 		array_push($data,$seat);
-		
+
 	}
 }
 $dataarray=array("member_booked"=>$data);
@@ -528,11 +528,11 @@ $date = new DateTime();
 	$seat_list=implode(",",$seatlist);
 	*/
 $q="INSERT INTO ticket_customer(name,email,address,contact1,itemnumber,status) VALUES('$name','$email','$address','$cno','$itemnumber','mem_request')";
-		
+
 		$r=mysql_query($q);
 		//$to = 'crpcomfort@yahoo.com';
-		$to = 'dhaval301092@gmail.com';
-		
+		$to = 'crpcomfort@yahoo.com';
+
 		$to1=$email;
 $subject = 'Members booking request for $ 15 tickets';
 
@@ -566,33 +566,33 @@ return "<table border='1' cellpadding='0' cellspacing='0' width='100%'><tr><td s
                         <h3>$15 Members Ticket Request Received.Following are the details.</h3>
 							<table id='designed_table' style='width: 100%;border-collapse: collapse'><tr style='background: #eee'><th style='background: #333;color: white;font-weight: bold;padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'/>
 			<th style='background: #333;color: white;font-weight: bold;padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'/>
-			
+
 		</tr><tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Name</td>
 			<td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$name."</td>
-			
+
 		</tr>
 		<tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>No. Of Tickets</td>
 			<td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$no_ticket."</td>
-			
+
 		</tr>
 		<tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Member's name</td>
 			<td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$member_names."</td>
-			
+
 		</tr>
-		
+
 		<tr style='background: #eee'><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Email</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$email."</td>
-		
+
 		</tr><tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Contact No.</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$cno."</td>
-		 
+
 		</tr>
-		
-		
-		
+
+
+
 		<tr style='background: #eee'><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Message</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$message."</td>
-		 
+
 		</tr>
 		</table></td>
 					</tr><tr><td bgcolor='#FFFFFF' style='padding: 30px 30px 30px 30px;'>
@@ -625,25 +625,25 @@ return "<table border='1' cellpadding='0' cellspacing='0' width='100%'><tr><td s
                         <h3>Ticket Request Received.Following are the details.</h3>
 							<table id='designed_table' style='width: 100%;border-collapse: collapse'><tr style='background: #eee'><th style='background: #333;color: white;font-weight: bold;padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'/>
 			<th style='background: #333;color: white;font-weight: bold;padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'/>
-			
+
 		</tr><tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Name</td>
 			<td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$name."</td>
-			
+
 		</tr><tr style='background: #eee'><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Email</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$email."</td>
-		
+
 		</tr><tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Contact No.</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$cno1."</td>
-		 
+
 		</tr>
 		<tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Alternate No.</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$cno2."</td>
-		 
+
 		</tr>
-		
+
 		<tr style='background: #eee'><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Requested Ticket</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$seatlist."</td>
-		 
+
 		</tr></table></td>
 					</tr><tr><td bgcolor='#FFFFFF' style='padding: 30px 30px 30px 30px;'>
 							<table border='1' cellpadding='0' cellspacing='0' width='100%'><tr><td>
@@ -676,25 +676,25 @@ return "<table border='1' cellpadding='0' cellspacing='0' width='100%'><tr><td s
                         <h3>Thanks for Purchasing Ticket.Please Come with Identity Proof.Following are the details.</h3>
 							<table id='designed_table' style='width: 100%;border-collapse: collapse'><tr style='background: #eee'><th style='background: #333;color: white;font-weight: bold;padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'/>
 			<th style='background: #333;color: white;font-weight: bold;padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'/>
-			
+
 		</tr><tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Name</td>
 			<td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$address_name."</td>
-			
+
 		</tr><tr style='background: #eee'><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Email</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$payer_email."</td>
-		
+
 		</tr><tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Address</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$address_street."</td>
-		 
+
 		</tr>
 		<tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Security No.</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$custom."</td>
-		 
+
 		</tr>
-		
+
 		<tr style='background: #eee'><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Requested Ticket</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$temp."</td>
-		 
+
 		</tr></table></td>
 					</tr><tr><td bgcolor='#FFFFFF' style='padding: 30px 30px 30px 30px;'>
 							<table border='1' cellpadding='0' cellspacing='0' width='100%'><tr><td>
@@ -728,25 +728,25 @@ return "<table border='1' cellpadding='0' cellspacing='0' width='100%'><tr><td s
                         <h3>Following Person Has Purchased Tickets Successfully.</h3>
 							<table id='designed_table' style='width: 100%;border-collapse: collapse'><tr style='background: #eee'><th style='background: #333;color: white;font-weight: bold;padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'/>
 			<th style='background: #333;color: white;font-weight: bold;padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'/>
-			
+
 		</tr><tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Name</td>
 			<td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$address_name."</td>
-			
+
 		</tr><tr style='background: #eee'><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Email</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$payer_email."</td>
-		
+
 		</tr><tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Address</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$address_street."</td>
-		 
+
 		</tr>
 		<tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Security No.</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$custom."</td>
-		 
+
 		</tr>
-		
+
 		<tr style='background: #eee'><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Requested Ticket</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$temp."</td>
-		 
+
 		</tr></table></td>
 					</tr><tr><td bgcolor='#FFFFFF' style='padding: 30px 30px 30px 30px;'>
 							<table border='1' cellpadding='0' cellspacing='0' width='100%'><tr><td>
@@ -780,25 +780,25 @@ return "<table border='1' cellpadding='0' cellspacing='0' width='100%'><tr><td s
                         <h3>You have Successfully Refunded the tickets with following details.</h3>
 							<table id='designed_table' style='width: 100%;border-collapse: collapse'><tr style='background: #eee'><th style='background: #333;color: white;font-weight: bold;padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'/>
 			<th style='background: #333;color: white;font-weight: bold;padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'/>
-			
+
 		</tr><tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Name</td>
 			<td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$address_name."</td>
-			
+
 		</tr><tr style='background: #eee'><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Email</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$payer_email."</td>
-		
+
 		</tr><tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Address</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$address_street."</td>
-		 
+
 		</tr>
 		<tr><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Security No.</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$custom."</td>
-		 
+
 		</tr>
-		
+
 		<tr style='background: #eee'><td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>Requested Ticket</td>
 		  <td style='padding: 6px;border: 1px solid #ccc;text-align: center;vertical-align: middle'>".$temp."</td>
-		 
+
 		</tr></table></td>
 					</tr><tr><td bgcolor='#FFFFFF' style='padding: 30px 30px 30px 30px;'>
 							<table border='1' cellpadding='0' cellspacing='0' width='100%'><tr><td>

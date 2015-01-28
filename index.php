@@ -51,9 +51,9 @@ J onward <b> $30</b> Each
 </div>
 <div style="clear:both;"></div>
 <div class="flyerimage" style="margin: 0 auto;width: 40%;">
-<img src="jonita_flyer1.png" style="width: 100%;">
+<img src="bappi_poster.jpg" style="width: 100%;">
 </div>
-<div id="wrapper" >
+<div id="wrapper">
 <div id="main">
 <img src="stw01.png" style="margin-left: 750px;"/>
 <div id="only_for_scroll" style="width:1855px;">
