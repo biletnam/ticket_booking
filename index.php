@@ -164,7 +164,7 @@ $num_padded = sprintf("%02s", $i);?>
 <td width="10" class="lineno"><font size="+1">I</font></td>
 <?php for($i=1;$i<=11;$i++){
 $num_padded = sprintf("%02s", $i);?>
-<td id="H-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
+<td id="I-<?php echo $i; ?>" class="available" valign="middle" background="chairicon_cir_26.png" style="">
 <font size="+1"><?php echo $num_padded; ?></font>
 </td>
 <?php } ?>
