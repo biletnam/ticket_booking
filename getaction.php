@@ -71,4 +71,8 @@ if($action=="get_ticket_rate")
 //echo "Selected Ticket".$ticket;
 get_ticket_rate_from_db($ticket);
 }
+if($action=="get_ticket_color")
+{
+  set_ticket_color_from_rate();
+}
 ?>
