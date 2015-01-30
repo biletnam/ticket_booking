@@ -62,8 +62,10 @@ function set_ticket_color(array,jpgfile)
 {
   $.each( array, function( i, val ) {
     //console.log(val + ":"+jpgfile);
+    if($("#"+val).attr("background") != "chairicon_cir_26_red.png")
+    {
     $("#"+val).attr("background",jpgfile);
-
+    }
   });
 }
 $(document).ready(function(){
@@ -265,21 +267,23 @@ function priceDecrManage(seat)
                 db_price=result;
             }
         })
-        switch(Number(db_price))
-        {
-          case 100:
-            $("#"+seat).attr("background","chairicon_cir_26_1.png");
-            break;
-          case 75:
-            $("#"+seat).attr("background","chairicon_cir_26_2.png");
-            break;
-          case 50:
-            $("#"+seat).attr("background","chairicon_cir_26_3.png");
-            break;
-          case 30:
-            $("#"+seat).attr("background","chairicon_cir_26.png");
-            break;
-        }
+
+          switch(Number(db_price))
+          {
+            case 100:
+              $("#"+seat).attr("background","chairicon_cir_26_1.png");
+              break;
+            case 75:
+              $("#"+seat).attr("background","chairicon_cir_26_2.png");
+              break;
+            case 50:
+              $("#"+seat).attr("background","chairicon_cir_26_3.png");
+              break;
+            case 30:
+              $("#"+seat).attr("background","chairicon_cir_26.png");
+              break;
+          }
+
 		price=Number(price)-Number(db_price);
 		$("#sum").html(price);
 }
