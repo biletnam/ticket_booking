@@ -43,6 +43,7 @@ mysql_close($con);
 
 function set_ticket_color_from_rate()
 {
+
 	$ticket_list=array();
 	$ticket_100=array();
 	$ticket_75=array();
@@ -54,8 +55,9 @@ function set_ticket_color_from_rate()
 	{
 		while($row=mysql_fetch_array($r))
 		{
-			$seat= $row['name'];
-			$price= $row['price'];
+			$seat=$row['name'];
+			$price=$row['price'];
+
 			switch($price)
 			{
 				case 100:
@@ -70,16 +72,14 @@ function set_ticket_color_from_rate()
 				case 30:
 				array_push($ticket_30,$seat);
 				break;
-				default:
-				break;
 			}
-			
+
 		}
-		
+
 	}
 	$ticket_list=array("100"=>$ticket_100,"75"=>$ticket_75,"50"=>$ticket_50,"30"=>$ticket_30);
 	echo json_encode($ticket_list);
-	mysql_close($con);
+	//mysql_close($con);
 }
 /*--------------------- ---- Get Ticket Rates ------------------------------ */
 function getrates()

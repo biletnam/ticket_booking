@@ -1,10 +1,9 @@
 <?php include("config.php");
 include("functions.php");//only want to see it
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Jonita Concert Ticket Booking</title>
+<title>Bappi Concert Ticket Booking</title>
 <link rel="stylesheet" href="style.css" />
 <script src="jquery-1.10.2.min.js"></script>
 <!--[if IE 7]>
@@ -43,15 +42,25 @@ include("functions.php");//only want to see it
 
 
 </div>
-<!--div style="float:right;text-align:right;font-size: 20px;margin-top: 6px;">
-A & B  VIP <b>$100</b> Each,  C to H  <b>$50</b> Each,
-J onward <b> $30</b> Each
-</div-->
+<div style="float:right;text-align:right;font-size: 20px;">
+<table style="font-weight: bold;">
+	<tr>
+		<td>100</td>
+		<td><img src="chairicon_cir_26_1.png"></td>
+		<td>75</td>
+		<td><img src="chairicon_cir_26_2.png"></td>
+		<td>50</td>
+		<td><img src="chairicon_cir_26_3.png"></td>
+		<td>30</td>
+		<td><img src="chairicon_cir_26.png"></td>
+	</tr>
+</table>
+</div>
 
 </div>
 <div style="clear:both;"></div>
 <div class="flyerimage" style="margin: 0 auto;width: 40%;">
-<img src="bappi_poster.jpg" style="width: 100%;">
+<img src="bappi_poster_new.jpg" style="width: 100%;">
 </div>
 <div id="wrapper">
 <div id="main">

@@ -1,6 +1,4 @@
-<html>
-<head>
-</head>
+
 <script>
 $(document).on('mousewheel', '#main', function (e) {
          var delta = e.originalEvent.wheelDelta;
@@ -61,10 +59,10 @@ $(document).on('mousewheel', '#main', function (e) {
 function set_ticket_color(array,jpgfile)
 {
   $.each( array, function( i, val ) {
-    //console.log(val + ":"+jpgfile);
+  //  console.log(val+":"+jpgfile);
     if($("#"+val).attr("background") != "chairicon_cir_26_red.png")
     {
-    $("#"+val).attr("background",jpgfile);
+    	$("#"+val).attr("background",jpgfile);
     }
   });
 }
@@ -77,6 +75,7 @@ $(document).ready(function(){
             data : {action:"get_ticket_color"},
             success: function(result){
               var new_result=$.parseJSON(result);
+              //console.log(new_result);
                 $.each( new_result, function( i, array ) {
 
 
@@ -90,8 +89,6 @@ $(document).ready(function(){
                 break;
               case "50":
                 set_ticket_color(array,"chairicon_cir_26_3.png")
-                break;
-              case "30":
                 break;
             }
           });
@@ -125,7 +122,7 @@ $(document).ready(function(){
 
 	/*--------------------- ---- Get Ticket Rate From Table and Display  It------------------------------ */
 	var ticketrates;
-	var ticketrate0,ticketrate1,ticketrate2,ticketrate3
+	var ticketrate0,ticketrate1,ticketrate2,ticketrate3;
 	$.ajax({
             url : 'getaction.php',
             method : 'POST',
@@ -614,4 +611,3 @@ $(document).on(function(event) {
      $(this).mask("(999) 999-9999");
    });
 </script>
-</html>

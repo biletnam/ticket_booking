@@ -19,7 +19,7 @@ $headers .= "Reply-To:info@gujaratisocietycfl.com\r\n";
 //$headers .= "CC:jpatel5000@yahoo.com\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type:text/html; charset=ISO-8859-1\r\n";
- $message=mailtemplate($name,$email,$cno1,$cno2,$seatlist); 
+ $message=mailtemplate($name,$email,$cno1,$cno2,$seatlist);
 		//echo $message;
 		//$m1="You Requested";
 		mail($to, $subject, $message, $headers);
@@ -35,16 +35,15 @@ if(!$r1)
 
 ?>
 	<form id="paypalform" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-	
-	<input type="hidden" name="cmd" value="_xclick">
-	
-	<input type="hidden" name="business" value="office@gujaratisocietycfl.com">
-	
-	<input type="hidden" name="item_name" value="Book Ticket---<?php echo $seatlist;?>">
-	
-	<input type="hidden" name="custom" value="<?php echo $item_no; ?>">
-	
 
+	<input type="hidden" name="cmd" value="_xclick">
+
+	<input type="hidden" name="business" value="office@gujaratisocietycfl.com">
+
+	<input type="hidden" name="item_name" value="Book Ticket---<?php echo $seatlist;?>">
+
+	<input type="hidden" name="custom" value="<?php echo $item_no; ?>">
+  <input type="hidden" name="item_number" value="Bappi_Lahiri_Event">
 	<input type="hidden" name="no_note" value="1">
 	<input type="hidden" name="currency_code" value="USD">
 
@@ -52,8 +51,8 @@ if(!$r1)
 
 	<input type="hidden" class="input-text"  name="amount" value="<?php echo $price; ?>" />
 
-	
-		
+
+
 	</form>
 
 <?php session_destroy();?>
