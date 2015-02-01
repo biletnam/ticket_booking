@@ -378,32 +378,10 @@ function checktokenno()
 parse_str($_POST["val"]);
 	$ticketlist=array();
 	$ticketrate=array();
-$ticket_first_array=array('A','B');
-$ticket_second_array=array('C','D','E','F','G','H');
-$ticket_third_array=array('J','K','L','M','N','O','P');
-$ticket_four_array=array('Q','R','S','T','U');
 $q="SELECT * FROM ticket_customer WHERE itemnumber='$token'";
 $r=mysql_query($q);
 if(mysql_num_rows($r)>0)
 {
-	/*$q1="SELECT * FROM ticket_rate";
-	$r1=mysql_query($q1);
-	if(mysql_num_rows($r1)>0)
-	{
-	while($row=mysql_fetch_array($r1))
-	{
-		$p=$row["price"];
-		array_push($ticketrate,$p);
-	}
-	}
-	$price1=$ticketrate[0];
-$price2=$ticketrate[1];
-$price3=$ticketrate[2];
-$price4=$ticketrate[3];*/
-
-$price1=100;$price1=50;$price1=30;$price4=15;
-//echo $price1,$price2,$price3,$price4;
-
 	while($row=mysql_fetch_array($r))
 	{
 	$c_id=$row["id"];
@@ -430,24 +408,18 @@ foreach($_SESSION['tickets_step1'] as $key=>$value)
 	for($i=0;$i<sizeof($ticketlist);$i++)
 	{
 		$ticketno=$ticketlist[$i];
-		$ticketrowsplit=explode('-',$ticketno);
-		$ticketrow=$ticketrowsplit[0];
-		if(in_array($ticketrow,$ticket_first_array))
+		$q="SELECT price from ticket_rate WHERE name='".$ticketno."'";
+		//echo $q;
+		$r=mysql_query($q);
+		if(mysql_num_rows($r)>0)
 		{
-			$price=$price+$price1;
+			while($row=mysql_fetch_array($r))
+			{
+
+					$price=$price+$row["price"];
+			}
 		}
-		else if(in_array($ticketrow,$ticket_second_array))
-		{
-			$price=$price+$price2;
-		}
-		else if(in_array($ticketrow,$ticket_third_array))
-		{
-			$price=$price+$price3;
-		}
-		else
-		{
-			$price=$price+$price4;
-		}
+
 	}
 	echo "<br/><div style='clear:both;'></div><h1>Ticket Price:&nbsp;&nbsp;<font class='totalrate'>$ &nbsp;".$price."</font></h1>";
 	$_SESSION['price']=$price;

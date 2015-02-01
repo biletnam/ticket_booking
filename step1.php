@@ -43,7 +43,7 @@ if(!$r1)
 	<input type="hidden" name="item_name" value="Book Ticket---<?php echo $seatlist;?>">
 
 	<input type="hidden" name="custom" value="<?php echo $item_no; ?>">
-  <input type="hidden" name="item_number" value="Bappi_Lahiri_Event">
+  <input type="hidden" name="item_number" value="2">
 	<input type="hidden" name="no_note" value="1">
 	<input type="hidden" name="currency_code" value="USD">
 
