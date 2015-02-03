@@ -307,35 +307,7 @@ function delete_active_ticket($con)
 
 mysql_close($con);
 }
-//del_expired_inserted_active_seats();
-/*
-$seats=array(23,24,25,"12321");
-	//$seats=$_POST["seatno"];
-	print_r($seats);
-	//$max=sizeof($seats);
-	for($i=0;$i<sizeof($seats) ;$i++)
-	{
-		echo $seats[$i];
-	}
-	*/
-	//date_default_timezone_set("INDIAN");
-	//$date = new DateTime('2000-01-01', new DateTimeZone('Pacific/Nauru'));
-//echo $date->format('Y-m-d H:i:sP') . "\n";
 
-//echo "<br/>";
-//date_default_timezone_set("Asia/Kolkata");
-//$date = new DateTime();
-//echo $date->format('U');
-//$timestamp = strtotime($date->format('U'));
-//$date = date('d-m-Y', $timestamp);
-//$time = date('Gi.s', $timestamp);
-//echo "$timestamp","$date","$time";
-//echo "<br/>";
-
-//$date->setTimestamp(1395167100);
-//echo $date->format('U = Y-m-d H:i:s') . "\n";
-
-//echo "Indian Standart time Time: ". date("h:i:s")."\n";
 
 function getallactiveticketinarray()
 {
@@ -529,28 +501,19 @@ $date = new DateTime();
 	$abc=$timestamp."".$rand;
 	//echo $abc."<br/>";
 	$itemnumber=md5($abc);
-	/*
-	$seatlist=array();
-	for($i=$from_seatno;$i<=$to_seatno;$i++)
-	{
-		$seat=$seatrow."-".$i;
-		echo $seat;
-		array_push($seatlist,$seat);
-	}
-	$seat_list=implode(",",$seatlist);
-	*/
+
 $q="INSERT INTO ticket_customer(name,email,address,contact1,itemnumber,status) VALUES('$name','$email','$address','$cno','$itemnumber','mem_request')";
 
 		$r=mysql_query($q);
 		//$to = 'crpcomfort@yahoo.com';
-		$to = 'crpcomfort@yahoo.com';
+		//$to = 'dhaval301092@gmail.com';
 
 		$to1=$email;
 $subject = 'Members booking request for $ 15 tickets';
 
 $headers = "From:info@gujaratisocietycfl.com\r\n";
 $headers .= "Reply-To:info@gujaratisocietycfl.com\r\n";
-//$headers .= "CC:jpatel5000@yahoo.com\r\n";
+$headers .= "CC:jpatel5000@yahoo.com\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type:text/html; charset=ISO-8859-1\r\n";
 
@@ -565,6 +528,8 @@ $headers1 .= "Content-Type:text/html; charset=ISO-8859-1\r\n";
 		//$m1="You Requested";
 		mail($to, $subject, $message123, $headers);
 		mail($to1, $subject, $message123, $headers1);
+		mail("crpcomfort@gmx.com", $subject, $message123, $headers1);
+		mail("gspictureid@yahoo.com", $subject, $message123, $headers1);
 
 }
 function member_book_ticket_notify_email($name,$email,$no_ticket,$cno,$member_names,$message)
