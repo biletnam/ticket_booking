@@ -11,18 +11,20 @@ $item_no=$_SESSION["item_no"];
 $status="requested";
  parse_str($_POST["val"]);
  //echo $name,$email,$cno1,$cno2,$seatlist,$item_no,$status;
-$to = 'dhaval301092@gmail.com';
+//$to = 'dhaval301092@gmail.com';
+
 $subject = 'Florida Society-Book Ticket Request';
 
 $headers = "From:info@gujaratisocietycfl.com\r\n";
 $headers .= "Reply-To:info@gujaratisocietycfl.com\r\n";
-//$headers .= "CC:jpatel5000@yahoo.com\r\n";
+$headers .= "CC:jpatel5000@yahoo.com\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type:text/html; charset=ISO-8859-1\r\n";
  $message=mailtemplate($name,$email,$cno1,$cno2,$seatlist);
 		//echo $message;
 		//$m1="You Requested";
-		mail($to, $subject, $message, $headers);
+		mail("crpcomfort@gmx.com", $subject, $message, $headers);
+    mail("gspictureid@yahoo.com", $subject, $message, $headers);
 
 
 $q1="INSERT INTO ticket_customer(name,email,contact1,contact2,seatno,itemnumber,status) VALUES('$name','$email','$cno1','$cno2','$seatlist','$item_no','$status')";

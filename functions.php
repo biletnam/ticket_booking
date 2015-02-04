@@ -591,6 +591,7 @@ return "<table border='1' cellpadding='0' cellspacing='0' width='100%'><tr><td s
 		</tr></table>";
 
 }
+
 function mailtemplate($name,$email,$cno1,$cno2,$seatlist)
 {
 
