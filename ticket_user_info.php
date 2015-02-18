@@ -50,16 +50,16 @@ foreach($ticketlist as $key=>$value)
         <form id="buyticketform" method="post" action="#">
 
             <label>Name</label>
-            <input class="tbxText" name="name" placeholder="Type Here" required>
+            <input class="tbxText" name="name" type="text" placeholder="Type Here" required>
 
             <label>Email</label>
             <input name="email" type="email" placeholder="Type Here" required>
 
             <label>Contact No</label>
-            <input class="quantity" name="cno1" type="text" maxlength="10" placeholder="Type Here" required>
+            <input  name="cno1" type="text" maxlength="10" placeholder="Type Here" required>
 
              <label>Alternate No</label>
-            <input class="quantity" name="cno2" type="text" maxlength="10" placeholder="Type Here" >
+            <input  name="cno2" type="text" maxlength="10" placeholder="Type Here" >
 
          <input id="buyticket" class="button_example" style="margin-top: 10px;float: right;margin-right: 20px;" name="submit" type="submit" value="Buy Ticket">
 
