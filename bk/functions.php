@@ -2,7 +2,7 @@
 include('config.php');
 $data=array();
 
-function getticketinfo($con,$data)
+function getticketinfo($con_e1,$data)
 {
 $q="SELECT * FROM ticket_detail";
 $r=mysql_query($q);
@@ -19,11 +19,11 @@ if(mysql_num_rows($r)>0)
 $dataarray=array("booked"=>$data);
         echo json_encode($dataarray);
 //print_r($data);
-mysql_close($con);
+mysql_close($con_e1);
 }
-//getticketinfo($con,$data);
+//getticketinfo($con_e1,$data);
 
-function getactivetickets($con)
+function getactivetickets($con_e1)
 {
 $activeticket=array();
 $q="SELECT * FROM ticket_currently_active";
@@ -40,17 +40,17 @@ if(mysql_num_rows($r)>0)
 $activeticketarray=array("active"=>$activeticket);
         echo json_encode($activeticketarray);
 //print_r($data);
-mysql_close($con);
+mysql_close($con_e1);
 }
-//getactivetickets($con);
-function check_if_booked($con)
+//getactivetickets($con_e1);
+function check_if_booked($con_e1)
 {
 	$stat="ok";
 	$status="active";
 	$booked_ticket=array();
 	$seats=array();
 	$seats=$_POST["seatno"];
-	//getticketinfo($con,$data);
+	//getticketinfo($con_e1,$data);
 	//echo $data;
 	//$seats=$_POST["seatno"];
 	//print_r($seats);
@@ -126,13 +126,13 @@ function check_if_booked($con)
 	echo $stat;*/
 	
 	
-mysql_close($con);
+mysql_close($con_e1);
 }
 
-//check_if_booked($con);
+//check_if_booked($con_e1);
 
 
-function insert_active_ticket($con)
+function insert_active_ticket($con_e1)
 {
 	//$seats_insidetable=array();
 	$status="active";
@@ -161,9 +161,9 @@ function insert_active_ticket($con)
 	}
 //echo "In PHP function".$_POST["seatno"];
 
-mysql_close($con);
+mysql_close($con_e1);
 }
-function del_expired_inserted_active_seats($con)
+function del_expired_inserted_active_seats($con_e1)
 {
 	$date = new DateTime();
 	$timestamp=$date->format('U');
@@ -186,10 +186,10 @@ function del_expired_inserted_active_seats($con)
 				//echo $table_timestamp."<br/>";
 			}
 	}
-	mysql_close($con);
+	mysql_close($con_e1);
 }
 
-function delete_active_ticket($con)
+function delete_active_ticket($con_e1)
 {
 	//$seat_no=$_POST["seatno"];
 	//$status="active";
@@ -205,7 +205,7 @@ function delete_active_ticket($con)
 	}
 //echo "In PHP function".$_POST["seatno"];
 
-mysql_close($con);
+mysql_close($con_e1);
 }
 //del_expired_inserted_active_seats();
 /*

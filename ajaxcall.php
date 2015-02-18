@@ -66,8 +66,9 @@ function set_ticket_color(array,jpgfile)
     }
   });
 }
-function get_ticket_rate_first()
-{
+$(document).ready(function(){
+
+  /*-----*/
   $.ajax({
             url : 'getaction.php',
             method : 'POST',
@@ -81,25 +82,18 @@ function get_ticket_rate_first()
             switch(i)
             {
               case "100":
-                set_ticket_color(array,"chairicon_cir_26_1.png");
+                set_ticket_color(array,"chairicon_cir_26_1.png")
                 break;
               case "75":
-                set_ticket_color(array,"chairicon_cir_26_2.png");
+                set_ticket_color(array,"chairicon_cir_26_2.png")
                 break;
               case "50":
-                set_ticket_color(array,"chairicon_cir_26_3.png");
-              case "30":
-                set_ticket_color(array,"chairicon_cir_26.png");
+                set_ticket_color(array,"chairicon_cir_26_3.png")
                 break;
             }
           });
       }
         })
-}
-$(document).ready(function(){
-
-  /*-----*/
-  get_ticket_rate_first();
   /*---*/
 
 	/*--------------------- ---- Get Expired Active Ticket and Delete It------------------------------ */
@@ -213,8 +207,6 @@ var max_ticket;
 
 $("#selectmax").change(function(e) {
     //var maxsel=Number(sel.length)+1;
-    get_ticket_rate_first();
-    //$("#main").removeClass('cont_cursor');
 	if($("#selectmax").val()==0)
 		{
 			//console.log("not sel change");

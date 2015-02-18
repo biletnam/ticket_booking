@@ -61,7 +61,16 @@ include("functions.php");//only want to see it
 <div style="clear:both;"></div>
 <div class="flyerimage" style="margin: 0 auto;width: 40%;">
 <img src="bappi_poster_new.jpg" style="width: 100%;">
+<div align='center' style='margin-top: 6px;'>
+<!-- ewebsitecounter.com Code START -->
+<a href="http://www.ewebsitecounter.com/featurescounter.php" target="_blank">
+<img src="http://ewebsitecounter.com/counter/counter.php?page=34379&style=0033&nbdigits=5&type=ip&initCount=100" alt="Track Websites" border="0" >
+</a>
+
 </div>
+</div>
+
+
 <div id="wrapper">
 <div id="main">
 <img src="stw01.png" style="margin-left: 750px;"/>
@@ -1144,7 +1153,7 @@ $num_padded = sprintf("%02s", $i);?>
 </div>
 <div class="imgdesc" style="float:right;">
 	<table>
-    	<tr><td><img src="chairicon_cir_26.png"></td><td>Available</td>
+    	<tr><!--td><img src="chairicon_cir_26.png"></td><td>Available</td-->
         <td><img src="chairicon_cir_26_green.png"></td><td>Selected</td>
         <td><img src="chairicon_cir_26_red.png"></td><td>Booked</td></tr>
     </table>

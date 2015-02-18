@@ -4,32 +4,32 @@ $action=$_POST["action"];
 
 if($action=="getticket")
 {
-    getticketinfo($con,$data);
+    getticketinfo($con_e1,$data);
 }
 
 if($action=="setactive")
 {
-    check_if_booked($con);
+    check_if_booked($con_e1);
 }
 if($action=="delactive")
 {
-    delete_active_ticket($con);
+    delete_active_ticket($con_e1);
 }
 if($action=="delexpireactiveticket")
 {
-    del_expired_inserted_active_seats($con);
+    del_expired_inserted_active_seats($con_e1);
 }
 if($action=="delexpirepaymentticket")
 {
-    del_expired_inserted_payment_seats($con);
+    del_expired_inserted_payment_seats($con_e1);
 }
 if($action=="getbooked")
 {
-check_if_booked($con);
+check_if_booked($con_e1);
 }
 if($action=="getactivetickets")
 {
-	getactivetickets($con);
+	getactivetickets($con_e1);
 }
 if($action=="insidepaypal")
 {
@@ -54,14 +54,14 @@ paypal_customer_direct_redirect();
 
 if($action=="get_booked_mem_ticket")
 {
-get_booked_member_ticket($con,$data);
+get_booked_member_ticket($con_e1,$data);
 }
 
 
 
 if($action=="get_mem_record")
 {
-//get_booked_member_ticket($con,$data);
+//get_booked_member_ticket($con_e1,$data);
 insert_mem_record();
 }
 
