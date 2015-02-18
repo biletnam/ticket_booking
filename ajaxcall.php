@@ -66,8 +66,8 @@ function set_ticket_color(array,jpgfile)
     }
   });
 }
-$(document).ready(function(){
-
+function assign_ticket_color()
+{
   /*-----*/
   $.ajax({
             url : 'getaction.php',
@@ -90,11 +90,18 @@ $(document).ready(function(){
               case "50":
                 set_ticket_color(array,"chairicon_cir_26_3.png")
                 break;
+              case "30":
+                set_ticket_color(array,"chairicon_cir_26.png");
+                break;
             }
           });
       }
         })
   /*---*/
+}
+$(document).ready(function(){
+
+  assign_ticket_color();
 
 	/*--------------------- ---- Get Expired Active Ticket and Delete It------------------------------ */
 
@@ -218,6 +225,7 @@ $("#selectmax").change(function(e) {
 		}
 		else
 		{
+      assign_ticket_color();
 			$('.flyerimage').fadeOut();
 			$('#wrapper').show("slow");
 		$('#main').css('opacity','1');
