@@ -47,7 +47,7 @@ foreach($ticketlist as $key=>$value)
 <section class="c_form">
 
 
-        <form id="buyticketform" method="post" action="">
+        <form id="buyticketform" method="post" action="#">
 
             <label>Name</label>
             <input class="tbxText" name="name" placeholder="Type Here" required>
@@ -61,7 +61,7 @@ foreach($ticketlist as $key=>$value)
              <label>Alternate No</label>
             <input class="quantity" name="cno2" type="text" maxlength="10" placeholder="Type Here" >
 
-         <input id="buyticket" class="button_example" style="margin-top: 10px;float: right;margin-right: 20px;" name="submit" type="submit" value="Submit">Buy Ticket</button>
+         <input id="buyticket" class="button_example" style="margin-top: 10px;float: right;margin-right: 20px;" name="submit" type="submit" value="Buy Ticket">
 
         </form>
 

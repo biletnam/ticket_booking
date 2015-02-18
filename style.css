@@ -138,7 +138,7 @@ margin-bottom: 0px;
 	letter-spacing:2px;
 }
 
-.c_form input,.c_form textarea{
+.c_form input[type='text'],.c_form input[type='email'],.c_form textarea{
 	width:439px;
 	height:45px;
 
